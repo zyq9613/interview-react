@@ -1,14 +1,18 @@
 import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
-
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
 export default function Home() {
   const { t } = useTranslation('nav')
+  const router = useRouter()
+  const { id } = router.query
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to {t('home')}, USER</h1>
+        <h1 className={styles.title}>
+          Welcome to {t('home')}, {id}
+        </h1>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
